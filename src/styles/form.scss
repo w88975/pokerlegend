@@ -1,0 +1,66 @@
+// @Author: KamiSama
+// @Date:   2016-08-29T14:44:01+08:00
+// @Email:  kamisama.lwh@qq.com
+// @Last modified by:   KamiSama
+// @Last modified time: 2016-08-29T18:08:16+08:00
+
+
+
+@import 'button.scss';
+
+#app {
+    background: #ededed;
+}
+
+.pkl-btn {
+    @include pkl-btn;
+}
+
+.pkl-form-group {
+    background: #fff;
+    padding: .5rem 0rem;
+    margin-top: 3rem;
+
+    .pkl-input-group {
+        text-align: initial;
+        display: flex;
+        padding: .5rem;
+
+        input {
+            flex: 1;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            border: none;
+        }
+
+        .login_icon {
+            font-size: 1.5rem;
+        }
+    }
+
+    .pkl-input-group-line {
+        border-bottom: 1px solid #ededed;
+    }
+}
+
+.pkl-cus-btn-red {
+    width: 90%;
+    margin: 1rem 1rem;
+    @include pkl-btn(
+        #f31313,#fff
+    );
+}
+
+.pkl-cus-btn {
+    width: 90%;
+    margin: 1rem 1rem;
+    @include pkl-btn;
+}
+
+.pkl-btn-verify {
+    padding: 0rem 1rem;
+    &[disabled] {
+        background: #f1f1f1;
+        color: #adadad;
+    }
+}

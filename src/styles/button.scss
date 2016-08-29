@@ -1,0 +1,37 @@
+// @Author: KamiSama
+// @Date:   2016-08-29T15:17:19+08:00
+// @Email:  kamisama.lwh@qq.com
+// @Last modified by:   KamiSama
+// @Last modified time: 2016-08-29T18:08:13+08:00
+
+
+
+@mixin pkl-btn(
+        $bgColor: #e6e6e6,
+        $Color: rgba(0,0,0,0.8)
+    ){
+        display: inline-block;
+        zoom: 1;
+        line-height: normal;
+        white-space: nowrap;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        box-sizing: border-box;
+        font-family: inherit;
+        font-size: 100%;
+        padding: 1em 1em;
+        color: $Color;
+        border: none transparent;
+        background-color: $bgColor;
+        text-decoration: none;
+        border-radius: 2px;
+        &:active {
+            background-color: $bgColor - 20%;
+        }
+    }
