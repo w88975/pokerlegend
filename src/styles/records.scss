@@ -1,0 +1,164 @@
+// @Author: kamisama
+// @Date:   2016-08-30T15:21:13+08:00
+// @Email:  kamisama.lwh@qq.com
+// @Last modified by:   kamisama
+// @Last modified time: 2016-08-30T18:58:22+08:00
+
+@import 'variables.scss';
+
+.pkl-records-head {
+    height: 17rem;
+    border-bottom: 1px solid #d4d4d4;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    .pkl-records-headimg {
+        width: 11rem;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            width: 7rem;
+            height: 7rem;
+            border-radius: 50%;
+        }
+
+        .username {
+            font-size: 1.2rem;
+            margin-top: .8rem;
+        }
+
+        .platform {
+            padding: .2rem .8rem;
+            border: 1px solid black;
+            margin-top: 1rem;
+        }
+    }
+
+    .pkl-records-statistics {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+
+        li {
+            margin: .75rem 0;
+            list-style: none;
+            display: inherit;
+            font-size: 1.2rem;
+
+            .value {
+                margin-left: 1rem;
+                color: rgb(39, 143, 238);
+            }
+
+            .progress {
+                width: 20rem;
+                text-align: left;
+                background: $deep-color;
+                color: #fff;
+                height: 2rem;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 0 1rem;
+                position: relative;
+                transform: skew(-25deg);
+
+                .bar {
+                    position: absolute;
+                    height: 2rem;
+                    background: #da400a;
+                    width: 51%;
+                    left: 0;
+                    top: 0;
+                }
+
+                .text {
+                    z-index: 9;
+                }
+            }
+        }
+    }
+
+    .pkl-records-godetail {
+        position: absolute;
+        right: 0px;
+        padding: .5rem 1.5rem;
+        top: 2rem;
+        background: $deep-color;
+        color: #fff;
+    }
+}
+
+.pkl-records-history {
+    display: flex;
+    height: 8rem;
+    border-bottom: 1px solid #d4d4d4;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    .circle {
+        width: 5rem;
+        height: 5rem;
+        background: $deep-color;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        padding: .5rem;
+        margin: 0 2rem;
+    }
+}
+
+.pkl-records-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+.pkl-records-table {
+    background-color: #fff;
+    border-top: 1px solid #d4d4d4;
+    padding: 1rem;
+    overflow: scroll;
+
+    table {
+        width: 100%;
+        font-size: 1.2rem;
+        text-align: left;
+        padding: 0px 1rem;
+
+        th {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            td {
+                width: 25%;
+                text-align: left;
+            }
+        }
+
+        tbody {
+            th {
+                border-bottom: 1px solid #d4d4d4;
+                padding: 1rem 0rem;
+                td {
+                    width: 25%;
+                    text-align: left;
+                    overflow: hidden;
+                    height: 2rem;
+                    text-overflow: ellipsis;
+                    white-space: pre;
+                }
+            }
+        }
+    }
+}

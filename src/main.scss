@@ -1,8 +1,8 @@
 // @Author: KamiSama
 // @Date:   2016-06-13T20:16:38+08:00
 // @Email:  kamisama.lwh@qq.com
-// @Last modified by:   KamiSama
-// @Last modified time: 2016-08-29T18:08:25+08:00
+// @Last modified by:   kamisama
+// @Last modified time: 2016-08-30T18:21:55+08:00
 
 
 
@@ -108,4 +108,41 @@ html {
 
 .doclist {
     line-height: 40px;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-fill {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-center {
+    align-items: center;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.flex-3 {
+    flex: 3;
 }

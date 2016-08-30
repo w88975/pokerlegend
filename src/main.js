@@ -2,8 +2,8 @@
 * @Author: KamiSama
 * @Date:   2016-08-26T11:41:04+08:00
 * @Email:  kamisama.lwh@qq.com
-* @Last modified by:   KamiSama
-* @Last modified time: 2016-08-29T18:08:23+08:00
+* @Last modified by:   kamisama
+* @Last modified time: 2016-08-30T14:51:40+08:00
 */
 
 
@@ -18,6 +18,7 @@ import './main.scss'
 import layout from './components/layout.js'
 import verifyCode from './components/sendVerifyCode.js'
 import login from './components/login.js'
+import records from './components/records.js'
 import my_test from './components/my_test.js'
 
 // 引入Ant-Design样式 & Animate.CSS样式
@@ -43,6 +44,7 @@ render((
             <IndexRoute path="/my_test" component={my_test} />
             <Route path="/my_test" component={my_test} />
             <Route path="/verifyCode" component={verifyCode} />
+            <Route path="/records" component={records} />
         </Route>
         <Route path="/login" component={login}/>
     </Router>

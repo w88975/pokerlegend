@@ -1,8 +1,8 @@
 // @Author: KamiSama
 // @Date:   2016-08-29T00:30:12+08:00
 // @Email:  kamisama.lwh@qq.com
-// @Last modified by:   KamiSama
-// @Last modified time: 2016-08-29T18:08:18+08:00
+// @Last modified by:   kamisama
+// @Last modified time: 2016-08-30T18:27:24+08:00
 
 
 
@@ -43,6 +43,24 @@
             }
         }
 
+        .my_layout_right {
+            width: 4rem;
+            height: 4rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        .no_menu {
+            display: none;
+        }
+
         .my_layout_title {
             line-height: 3;
             text-align: center;
@@ -54,5 +72,6 @@
         flex: 1;
         overflow: scroll;
         -webkit-overflow-scrolling: touch;
+        position: relative;
     }
 }
