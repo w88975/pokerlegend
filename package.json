@@ -23,7 +23,6 @@
     "babel-runtime": "^6.2.0",
     "crypto": "0.0.3",
     "css-loader": "^0.23.0",
-    "ecstatic": "^2.1.0",
     "fastclick": "^1.0.6",
     "file-loader": "^0.8.5",
     "font-awesome": "^4.6.3",
@@ -44,7 +43,6 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
-    "whatwg-fetch": "^1.0.0",
-    "yunpian-sms-client": "^2.0.1"
+    "whatwg-fetch": "^1.0.0"
   }
 }
