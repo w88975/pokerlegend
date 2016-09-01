@@ -2,8 +2,8 @@
 * @Author: KamiSama
 * @Date:   2016-08-29T14:05:52+08:00
 * @Email:  kamisama.lwh@qq.com
-* @Last modified by:   KamiSama
-* @Last modified time: 2016-08-29T18:08:07+08:00
+* @Last modified by:   kamisama
+* @Last modified time: 2016-08-31T17:49:23+08:00
 */
 
 
@@ -13,6 +13,7 @@ import {Link} from 'react-router'
 import QueueAnim from 'rc-queue-anim'
 import PubSub from 'pubsub-js/src/pubsub'
 import { Input, Icon, notification } from 'antd'
+import $ from 'jquery/dist/jquery'
 
 import '../styles/form.scss'
 
@@ -31,7 +32,6 @@ export default class login extends React.Component {
     componentDidMount() {
         PubSub.publish('hideLayout',false)
         PubSub.publish('updateTitle','登录')
-
     }
     componentWillUnmount(){
         PubSub.publish('hideLayout',true)
@@ -44,6 +44,26 @@ export default class login extends React.Component {
                 description: '请输入完整的账号密码!',
             });
         }
+        $.ajax({
+            type: "POST",
+            url: "/api/login",
+            data: JSON.stringify({
+                u: s.user,
+                p: s.pwd
+            }) ,
+            dataType: "json",
+            success: function(data){
+                if (data.code === 200) {
+                    window.location.href = "/#/records"
+                } else {
+                    return notification['error']({
+                        message: '登录失败',
+                        description: '请检查账号密码是否输入正确!',
+                    });
+                }
+            }
+        })
+
     }
     userChange = (e) => {
         this.setState({
@@ -74,7 +94,7 @@ export default class login extends React.Component {
                             </div>
                         </div>
                         <button className="pkl-cus-btn-red" onClick={this.handleClick}>登录</button>
-                        <Link to="/verifyCode"><button className="pkl-cus-btn">注册</button></Link>
+                        <Link to="/verifyCode" query={{type: 'register'}}><button className="pkl-cus-btn">注册</button></Link>
                         <br/>
                         <Link to="/">忘记密码</Link>
                     </div>

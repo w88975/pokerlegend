@@ -3,12 +3,13 @@
 * @Date:   2016-08-30T10:46:43+08:00
 * @Email:  kamisama.lwh@qq.com
 * @Last modified by:   kamisama
-* @Last modified time: 2016-08-30T19:02:35+08:00
+* @Last modified time: 2016-08-31T17:46:46+08:00
 */
 
 
 import React from 'react'
 import {Icon} from 'antd'
+import {Link} from 'react-router'
 import QueueAnim from 'rc-queue-anim'
 import PubSub from 'pubsub-js/src/pubsub'
 
@@ -20,7 +21,49 @@ export default class records extends React.Component {
         this.state = {
             headImg: '',
             userName: '',
-            platform: ''
+            platform: '',
+            showFilter: false,
+            filterStyle: {
+                transform: 'scale(0)'
+            },
+            records: [
+                {
+                    'name': 'KamiSama',
+                    'winning': '63.0%',
+                    'winning1v1': '78.3%',
+                    'gains': '2534.2'
+                },
+                {
+                    'name': 'KamiSama',
+                    'winning': '63.0%',
+                    'winning1v1': '78.3%',
+                    'gains': '2534.2'
+                },
+                {
+                    'name': 'KamiSama',
+                    'winning': '63.0%',
+                    'winning1v1': '78.3%',
+                    'gains': '2534.2'
+                },
+                {
+                    'name': 'KamiSama',
+                    'winning': '63.0%',
+                    'winning1v1': '78.3%',
+                    'gains': '2534.2'
+                },
+                {
+                    'name': 'KamiSama',
+                    'winning': '63.0%',
+                    'winning1v1': '78.3%',
+                    'gains': '2534.2'
+                },
+                {
+                    'name': 'KamiSama',
+                    'winning': '63.0%',
+                    'winning1v1': '78.3%',
+                    'gains': '2534.2'
+                },
+            ]
         }
     }
     componentDidMount() {
@@ -32,6 +75,20 @@ export default class records extends React.Component {
             userName: 'KamiSama',
             platform: '德扑圈'
         })
+    }
+    componentWillUnmount(){
+        PubSub.publish('updateMenu','back')
+    }
+    filterClick = () => {
+        this.setState({
+            showFilter: !this.state.showFilter,
+            filterStyle: {
+                transform: !this.state.showFilter ? 'scale(1)' : 'scale(0)'
+            }
+        });
+    }
+    loadMore = () => {
+        // ajax获取更多数据
     }
     render() {
         return (
@@ -69,12 +126,17 @@ export default class records extends React.Component {
                     </div>
                     <div className="pkl-records-history">
                         <div className="circle">每日top牌谱</div>
-                        <div className="circle">今日牌谱</div>
+                        <Link to="/today"><div className="circle">今日牌谱</div></Link>
                         <div className="circle">历史牌谱</div>
                     </div>
                     <div className="pkl-records-line">
                         <div>对阵战绩</div>
-                        <div>筛选</div>
+                        <div onClick={this.filterClick}>筛选 <Icon type="down" /></div>
+                        <div className="records-filter" style={this.state.filterStyle}>
+                            <span>胜率</span>
+                            <span>1V1胜率</span>
+                            <span>盈利</span>
+                        </div>
                     </div>
                     <div className="pkl-records-table flex flex-1">
                         <table>
@@ -87,67 +149,18 @@ export default class records extends React.Component {
                                 </th>
                             </thead>
                             <tbody>
-                                <th>
-                                    <td>KamiSama</td>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                    <td>88975</td>
-                                </th>
-                                <th>
-                                    <td>KamiSama</td>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                    <td>88975</td>
-                                </th>
-                                <th>
-                                    <td>我是一个超长的名字的用户</td>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                    <td>88975</td>
-                                </th>
-                                <th>
-                                    <td>TT</td>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                    <td>88975</td>
-                                </th>
-                                <th>
-                                    <td>KamiSama</td>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                    <td>88975</td>
-                                </th>
-                                <th>
-                                    <td>KamiSama</td>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                    <td>88975</td>
-                                </th>
-                                <th>
-                                    <td>KamiSama</td>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                    <td>88975</td>
-                                </th>
-                                <th>
-                                    <td>KamiSama</td>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                    <td>88975</td>
-                                </th>
-                                <th>
-                                    <td>KamiSama</td>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                    <td>88975</td>
-                                </th>
-                                <th>
-                                    <td>KamiSama</td>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                    <td>88975</td>
-                                </th>
+                                {
+                                    this.state.records.map(function(item){
+                                        return <th>
+                                            <td>{item.name}</td>
+                                            <td>{item.winning}</td>
+                                            <td>{item.winning1v1}</td>
+                                            <td>{item.gains}</td>
+                                        </th>
+                                    })
+                                }
                             </tbody>
+                            <div className="text-center" onClick={this.loadMore}>点击加载更多</div>
                         </table>
                     </div>
                 </div>

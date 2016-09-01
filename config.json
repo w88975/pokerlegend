@@ -1,0 +1,5 @@
+{
+    "user_db": "mongodb://192.168.1.99:27017/pokerlegend",
+    "pwdSalt": "dsfjlflsjglsj;lgj7987891313is62m",
+    "smsApiKey": "218818f91cba19d7f6faf91549e29a3c"
+}

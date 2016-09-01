@@ -2,7 +2,7 @@
 // @Date:   2016-06-13T20:16:38+08:00
 // @Email:  kamisama.lwh@qq.com
 // @Last modified by:   kamisama
-// @Last modified time: 2016-08-30T18:21:55+08:00
+// @Last modified time: 2016-08-31T11:06:27+08:00
 
 
 
@@ -20,6 +20,7 @@ html {
     top: 0;
     width: 100%;
     height: 100%;
+    background: #ededed;
 }
 
 /* 左侧导航固定宽度 */
@@ -108,6 +109,10 @@ html {
 
 .doclist {
     line-height: 40px;
+}
+
+.text-center {
+    text-align: center;
 }
 
 .flex {

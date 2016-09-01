@@ -3,13 +3,14 @@
 * @Date:   2016-08-26T14:52:49+08:00
 * @Email:  kamisama.lwh@qq.com
 * @Last modified by:   kamisama
-* @Last modified time: 2016-08-30T14:56:33+08:00
+* @Last modified time: 2016-08-31T17:50:44+08:00
 */
 
 
 
 import React from 'react'
 import {Icon} from 'antd'
+import {Link} from 'react-router'
 import QueueAnim from 'rc-queue-anim'
 import PubSub from 'pubsub-js/src/pubsub'
 
@@ -23,7 +24,13 @@ export default class myLayout extends React.Component {
         PubSub.subscribe('updateMenu', this.updateMenu) // 注册更新title
         this.state = {
             title: '德扑神器',
+            leftStyle: { // 个人中心的隐藏或者显示样式
+                left: '-100%'
+            },
             type: 'back' // back(只有回退按钮) back-filter(回退加筛选) profile(个人中心) profile-platform(个人中心加平台筛选)
+        }
+        this.profileStyle = {
+            left: '-18rem'
         }
     }
     componentDidMount() {
@@ -48,12 +55,28 @@ export default class myLayout extends React.Component {
         if (this.state.type === 'back' || this.state.type === 'back-filter') {
             window.history.back(-1)
         } else {
-            alert('个人中心')
+            this.setState({
+                leftStyle: {
+                    left: '0rem'
+                }
+            })
         }
     }
 
     rightMenu = () => {
         //
+    }
+
+    profileClick = () => {
+        this.setState({
+            leftStyle: {
+                left: '-100%'
+            }
+        })
+    }
+
+    menuBarClick = (e) => {
+        e.stopPropagation()
     }
 
     render() {
@@ -71,6 +94,16 @@ export default class myLayout extends React.Component {
                 </div>
                 <div className="my_content">
                     { this.props.children }
+                </div>
+                <div className="pkl-profile-panel" style={this.state.leftStyle} onClick={this.profileClick}>
+                    <div className="menu-bar" onClick={this.menuBarClick}>
+                        <Link to="/records"><Icon type="cloud-download-o" /> 同步数据</Link><br/>
+                        <Link to="/resetpwd"><Icon type="line-chart" /> 盈亏统计</Link><br/>
+                        <Link to="/"><Icon type="star" /> 收藏牌局</Link><br/>
+                        <Link to="/verifyCode"><Icon type="user" /> 账号管理</Link><br/>
+                        <Link to="/records"><Icon type="setting" /> 设置</Link><br/>
+                        <Link to="/login"><Icon type="cross-circle-o" /> 退出登录</Link><br/>
+                    </div>
                 </div>
             </div>
         )

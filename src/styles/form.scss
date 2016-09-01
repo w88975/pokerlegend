@@ -8,10 +8,6 @@
 
 @import 'button.scss';
 
-#app {
-    background: #ededed;
-}
-
 .pkl-btn {
     @include pkl-btn;
 }
