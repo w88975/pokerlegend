@@ -8,7 +8,7 @@
 
 .pkl-records-head {
     height: 17rem;
-    border-bottom: 1px solid #d4d4d4;
+    border-bottom: $borderStyle;
     background: #fff;
     display: flex;
     flex-direction: row;
@@ -97,7 +97,7 @@
 .pkl-records-history {
     display: flex;
     height: 8rem;
-    border-bottom: 1px solid #d4d4d4;
+    border-bottom: $borderStyle;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -148,7 +148,7 @@
 
 .pkl-records-table {
     background-color: #fff;
-    border-top: 1px solid #d4d4d4;
+    border-top: $borderStyle;
     padding: 1rem;
     overflow: scroll;
 
@@ -171,7 +171,7 @@
 
         tbody {
             th {
-                border-bottom: 1px solid #d4d4d4;
+                border-bottom: $borderStyle;
                 padding: 1rem 0rem;
                 td {
                     width: 25%;

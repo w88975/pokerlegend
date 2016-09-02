@@ -1,0 +1,55 @@
+club {
+    id : 俱乐部ID
+    name:
+}
+
+club_user {
+    id:
+    clubid:
+    userid:
+}
+
+club_records {
+    id: mongoid
+    clubid:
+    userid:
+    data {
+
+    }
+}
+
+详情
+records: {[
+    id:
+    userid:
+    detail:{
+
+    }
+    simple:{
+
+    }
+    ]
+
+
+
+}
+
+回访{{
+ 牌局ID
+ data {
+
+ }
+}}
+
+b
+{
+[{}*5000]
+}
+
+{
+id
+users[]
+data{
+
+}
+}

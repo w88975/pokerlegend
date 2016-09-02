@@ -21,3 +21,9 @@ server.post('/api/sendverify',function(req,res,next){
     });
     next()
 })
+
+server.post('/api/checkverify',function(req,res,next) {
+    var JSONBody = JSON.parse(req.body)
+    var m = JSONBody.m; // mobile
+    var c = JSONBody.c; // code
+})

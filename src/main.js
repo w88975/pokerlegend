@@ -21,6 +21,7 @@ import login from './components/login.js'
 import records from './components/records.js'
 import resetpwd from './components/resetpwd.js'
 import today from './components/today.js'
+import club from './components/club.js'
 import my_test from './components/my_test.js'
 
 
@@ -50,6 +51,7 @@ render((
             <Route path="/records" component={records} />
             <Route path="/resetpwd" component={resetpwd} />
             <Route path="/today" component={today} />
+            <Route path="/club" component={club} />
         </Route>
         <Route path="/login" component={login}/>
     </Router>
