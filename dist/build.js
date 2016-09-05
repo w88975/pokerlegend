@@ -47503,6 +47503,38 @@
 	                                        )
 	                                    )
 	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'pkl-club-line' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'left flex-1' },
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        null,
+	                                        '胜率'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        null,
+	                                        '9999/3498794'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'right flex-3' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'progress' },
+	                                        _react2.default.createElement('div', { className: 'bar' }),
+	                                        _react2.default.createElement(
+	                                            'span',
+	                                            { className: 'text' },
+	                                            '51%'
+	                                        )
+	                                    )
+	                                )
 	                            )
 	                        ),
 	                        _react2.default.createElement(

@@ -59,6 +59,16 @@ export default class today extends React.Component {
                                     <div className="progress"><div className="bar"></div><span className="text">51%</span></div>
                                 </div>
                             </div>
+
+                            <div className="pkl-club-line">
+                                <div className="left flex-1">
+                                    <span>胜率</span>
+                                    <span>9999/3498794</span>
+                                </div>
+                                <div className="right flex-3">
+                                    <div className="progress"><div className="bar"></div><span className="text">51%</span></div>
+                                </div>
+                            </div>
                         </div>
                         <div className={this.state.tabIndex === 0 ? 'tab-content hidden' : 'tab-content'}>2</div>
                     </div>
