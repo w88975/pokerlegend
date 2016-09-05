@@ -122,7 +122,7 @@ export default class records extends React.Component {
                                 </div>
                             </li>
                         </div>
-                        <span className="pkl-records-godetail">查看详情 ></span>
+                        <Link to="/club"><span className="pkl-records-godetail">查看详情 ></span></Link>
                     </div>
                     <div className="pkl-records-history">
                         <div className="circle">每日top牌谱</div>

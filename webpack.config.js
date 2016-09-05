@@ -13,7 +13,6 @@ var webpack = require('webpack');
 module.exports = {
     entry: {
         main: './src/main.js'
-        //vendors: ['react','jquery']
     },
     output: {
         path: './dist',
@@ -31,7 +30,7 @@ module.exports = {
                 test: /\.js$/,
                 // excluding some local linked packages.
                 // for normal use cases only node_modules is needed.
-                exclude: /node_modules|vue\/dist|vue-router\/|vue-loader\/|vue-hot-reload-api\//,
+                exclude: /node_modules|db|server|libs|dist|vue\/dist|vue-router\/|vue-loader\/|vue-hot-reload-api\//,
                 loader: 'babel'
             },
             {   test: /\.css$/,
@@ -63,20 +62,20 @@ module.exports = {
     ]
 };
 
-// if (process.env.NODE_ENV !== 'production') {
-//     module.exports.plugins = [
-//         new webpack.DefinePlugin({
-//             'process.env': {
-//                 NODE_ENV: JSON.stringify('production')
-//             }
-//         }),
-//         new webpack.optimize.UglifyJsPlugin({
-//             compress: {
-//                 warnings: false
-//             }
-//         }),
-//         new webpack.optimize.OccurenceOrderPlugin()
-//     ]
-// } else {
-//     module.exports.devtool = '#source-map'
-// }
+if (process.env.NODE_ENV !== 'production') {
+    module.exports.plugins = [
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
+        new webpack.optimize.OccurenceOrderPlugin()
+    ]
+} else {
+    module.exports.devtool = '#source-map'
+}

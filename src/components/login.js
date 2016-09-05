@@ -59,8 +59,14 @@ export default class login extends React.Component {
                     return notification['error']({
                         message: '登录失败',
                         description: '请检查账号密码是否输入正确!',
-                    });
+                    })
                 }
+            },
+            error: function(e) {
+                return notification['error']({
+                    message: '登录失败',
+                    description: '网络异常!'
+                });
             }
         })
 

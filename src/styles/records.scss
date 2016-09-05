@@ -149,6 +149,7 @@
 .pkl-records-table {
     background-color: #fff;
     border-top: $borderStyle;
+    border-bottom: $borderStyle;
     padding: 1rem;
     overflow: scroll;
 
@@ -180,6 +181,7 @@
                     height: 2rem;
                     text-overflow: ellipsis;
                     white-space: pre;
+                    font-weight: normal;
                 }
                 &:last-child {
                     border-bottom: none;
