@@ -21,98 +21,94 @@
 }
 
 
-.pkl-club-tab {
-    .tab-head {
+.tab-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 4rem;
+    align-items: center;
+    font-size: 1.4rem;
+    border-bottom: $borderStyle;
+    background: #fff;
+    .tab-item {
+        flex: 1;
+        padding: .9rem;
+        &:active {
+            background: #d4d4d4;
+            color: #e2e2e2;
+        }
+    }
+
+    .active {
+        border-bottom: 2px solid rgb(255, 106, 0);
+    }
+}
+
+.pkl-club-line {
+    display: flex;
+    height: 8rem;
+    border-bottom: 1px solid #d4d4d4;
+    flex-direction: row;
+    align-items: center;
+    background: #fff;
+    padding: 2rem;
+
+    .left {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        height: 4rem;
-        align-items: center;
-        font-size: 1.4rem;
-        border-bottom: $borderStyle;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .right {
+        padding-left: 2rem;
+        text-align: right;
+        .progress {
+            width: 20rem;
+            text-align: left;
+            background: $deep-color;
+            color: #fff;
+            height: 2rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0 1rem;
+            position: relative;
+            transform: skew(-25deg);
+
+            .bar {
+                position: absolute;
+                height: 2rem;
+                background: #da400a;
+                left: 0;
+                top: 0;
+            }
+
+            .text {
+                z-index: 9;
+            }
+        }
+    }
+}
+
+.pkl-chart-content {
+    h1,h2 {
+        font-weight: normal;
+    }
+
+    .charts {
+        width: 100%;
+        height: 20rem;
         background: #fff;
-        .tab-item {
-            flex: 1;
-            padding: .9rem;
-            &:active {
-                background: #d4d4d4;
-                color: #e2e2e2;
-            }
-        }
-
-        .active {
-            border-bottom: 2px solid rgb(255, 106, 0);
-        }
+        border-bottom: 1px solid #d4d4d4;
     }
+}
 
-    .tab-content {
-        .pkl-club-line {
-            display: flex;
-            height: 8rem;
-            border-bottom: 1px solid #d4d4d4;
-            flex-direction: row;
-            align-items: center;
-            background: #fff;
-            padding: 2rem;
-
-            .left {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .right {
-                padding-left: 2rem;
-                text-align: right;
-                .progress {
-                    width: 20rem;
-                    text-align: left;
-                    background: $deep-color;
-                    color: #fff;
-                    height: 2rem;
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    padding: 0 1rem;
-                    position: relative;
-                    transform: skew(-25deg);
-
-                    .bar {
-                        position: absolute;
-                        height: 2rem;
-                        background: #da400a;
-                        left: 0;
-                        top: 0;
-                    }
-
-                    .text {
-                        z-index: 9;
-                    }
-                }
-            }
-        }
-
-        .pkl-chart-content {
-            h1,h2 {
-                font-weight: normal;
-            }
-
-            .charts {
-                width: 100%;
-                height: 20rem;
-                background: #fff;
-                border-bottom: 1px solid #d4d4d4;
-            }
-        }
-
-        .pkl-club-title-line {
-            display: flex;
-            // border-bottom: 1px solid #d4d4d4;
-            flex-direction: row;
-            align-items: center;
-            background: #fff;
-            padding: 1rem 2rem;
-            border-left: 2px solid $deep-color;
-        }
-    }
+.pkl-club-title-line {
+    display: flex;
+    // border-bottom: 1px solid #d4d4d4;
+    flex-direction: row;
+    align-items: center;
+    background: #fff;
+    padding: 1rem 2rem;
+    border-left: 2px solid $deep-color;
 }

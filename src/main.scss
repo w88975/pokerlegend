@@ -155,3 +155,9 @@ html {
 .hidden {
     display: none;
 }
+
+.icon_touch {
+    &:active {
+        color: #909090;
+    }
+}

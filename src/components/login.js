@@ -37,12 +37,12 @@ export default class login extends React.Component {
         PubSub.publish('hideLayout',true)
     }
     handleClick = () =>  {
-        var s = this.state;
+        var s = this.state
         if (!s.user || !s.pwd) {
             return notification['error']({
                 message: '错误提示',
                 description: '请输入完整的账号密码!',
-            });
+            })
         }
         $.ajax({
             type: "POST",
@@ -66,7 +66,7 @@ export default class login extends React.Component {
                 return notification['error']({
                     message: '登录失败',
                     description: '网络异常!'
-                });
+                })
             }
         })
 
@@ -74,12 +74,12 @@ export default class login extends React.Component {
     userChange = (e) => {
         this.setState({
             user: e.target.value
-        });
+        })
     }
     pwdChange = (e) => {
         this.setState({
             pwd: e.target.value
-        });
+        })
     }
     render() {
         return (

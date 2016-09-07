@@ -16,7 +16,7 @@ module.exports = {
 
     update: function(table,conditions,params,cb) {
         var _model = mongoose.model(table,schemas[table],table);
-        _model.update(conditions,params,{multi: true},function(err,results) {
+        _model.update(conditions,params,{multi: true, upsert: true},function(err,results) {
             cb(err,results);
         });
     },

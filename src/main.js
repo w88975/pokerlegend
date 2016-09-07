@@ -22,6 +22,10 @@ import records from './components/records.js'
 import resetpwd from './components/resetpwd.js'
 import today from './components/today.js'
 import club from './components/club.js'
+import userinfo from './components/userinfo.js'
+import replay from './components/replay.js'
+import favorite from './components/favorite.js'
+import daytop from './components/daytop.js'
 import my_test from './components/my_test.js'
 
 
@@ -44,15 +48,20 @@ class Sider extends React.Component {
 // 配置路由
 render((
     <Router history={hashHistory} >
-        <Route path="/" component={layout}>
-            <IndexRoute path="/my_test" component={my_test} />
+        <Route path="/" component={login}/>
+        <Route path="/login" component={login}/>
+        <Route component={layout}>
+            <IndexRoute component={records} />
             <Route path="/my_test" component={my_test} />
             <Route path="/verifyCode" component={verifyCode} />
             <Route path="/records" component={records} />
             <Route path="/resetpwd" component={resetpwd} />
             <Route path="/today" component={today} />
             <Route path="/club" component={club} />
+            <Route path="/replay" component={replay} />
+            <Route path="/favorite" component={favorite} />
+            <Route path="/daytop" component={daytop} />
+            <Route path="/userinfo" component={userinfo} />
         </Route>
-        <Route path="/login" component={login}/>
     </Router>
-), document.getElementById('app'));
+), document.getElementById('app'))

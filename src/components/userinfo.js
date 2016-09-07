@@ -14,23 +14,31 @@ import QueueAnim from 'rc-queue-anim'
 import PubSub from 'pubsub-js/src/pubsub'
 import { Input, Icon, notification } from 'antd'
 
-import '../styles/today.scss'
+import '../styles/userinfo.scss'
 
-export default class today extends React.Component {
+export default class userinfo extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: {
-                newcount: 30
-            },
             records: [
+                {
+                    'name': 'KamiSama',
+                    'winning': '63.0%',
+                    'winning1v1': '78.3%',
+                    'gains': '2534.2'
+                },
+                {
+                    'name': 'KamiSama',
+                    'winning': '63.0%',
+                    'winning1v1': '78.3%',
+                    'gains': '2534.2'
+                }
             ]
         }
     }
     componentDidMount() {
         PubSub.publish('updateMenu','back')
-        PubSub.publish('updateTitle','用户信息')
-
+        PubSub.publish('updateTitle','牌手档案')
     }
     handleClick = (e) => {
 
@@ -41,9 +49,41 @@ export default class today extends React.Component {
             type={['bottom', 'top']}
             ease={['easeOutQuart', 'easeInOutQuart']}>
                 <div className="ani-box" key="a">
-                    <div className="pkl-today-new">
-                        新增手数: {this.state.data.newcount}
+                    <div className="pkl-club-head">
+                        <div className="club-name">用户名: KamiSama</div>
+                        <div className="club-join-time">ID: 1457434343</div>
                     </div>
+
+                    <div className="pkl-club-line">
+                        <div className="left flex-1">
+                            <span>入池率</span>
+                            <span>9999/3498794</span>
+                        </div>
+                        <div className="right flex-3">
+                            <div className="progress"><div className="bar"></div><span className="text">51%</span></div>
+                        </div>
+                    </div>
+
+                    <div className="pkl-club-line">
+                        <div className="left flex-1">
+                            <span>胜率</span>
+                            <span>9999/3498794</span>
+                        </div>
+                        <div className="right flex-3">
+                            <div className="progress"><div className="bar" style={{width: (3342/7765)*100 + '%'}}></div><span className="text">51%</span></div>
+                        </div>
+                    </div>
+                    <div className="pkl-usif-line"></div>
+                    <div className="pkl-club-line">
+                        <div className="left flex-1">
+                            <span>与我1V1胜率</span>
+                            <span>9999/3498794</span>
+                        </div>
+                        <div className="right flex-3">
+                            <div className="progress"><div className="bar" style={{width: (3342/7765)*100 + '%'}}></div><span className="text">51%</span></div>
+                        </div>
+                    </div>
+                    <div className="pkl-usif-line"></div>
                     <div className="pkl-records-table flex flex-1">
                         <table>
                             <thead>

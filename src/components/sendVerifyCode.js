@@ -15,7 +15,7 @@ import $ from 'jquery/dist/jquery'
 
 import '../styles/form.scss'
 
-export default class register extends React.Component {
+export default class sendVerifyCode extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -36,52 +36,64 @@ export default class register extends React.Component {
         switch (this.state.type) {
             case 'register':
                 title = '注册'
-                break;
+                break
             case 'changepwd':
                 title = '修改密码'
-                break;
+                break
             case 'findpwd':
                 title = '找回密码'
-                break;
+                break
         }
         PubSub.publish('updateTitle',title)
     }
     sendVerifyCode = (e) => {
         var s = this.state
-        var _this = this;
+        var _this = this
         if (this.state.phoneNumber.length !== 11) {
             return notification['error']({
                 message: '错误提示',
                 description: '请输入正确的手机号!',
-            });
+            })
         }
-        $.ajax({
-            type: "POST",
-            url: "/api/sendverify",
-            data: JSON.stringify({
-                m: s.phoneNumber,
-                t: s.type
-            }) ,
-            dataType: "json",
-            success: function(data){
-                var timer = 60
-                var t = setInterval(()=>{
-                    timer--
-                    var dis = 'disabled'
-                    var msg = timer + '秒后重试'
-                    if (timer <= 0) {
-                        timer = 60
-                        msg = '获取验证码'
-                        dis = ''
-                        clearInterval(t)
+        switch (this.state.type) {
+            case 'register':
+                $.ajax({
+                    type: "POST",
+                    url: "/api/sendverify",
+                    data: JSON.stringify({
+                        m: s.phoneNumber,
+                        t: s.type
+                    }) ,
+                    dataType: "json",
+                    success: function(data){
+                        if (data.code === -2) {
+                            return notification['error']({
+                                message: '错误提示',
+                                description: data.message,
+                            })
+                        } else if (data.code === 200) {
+                            var timer = 60
+                            var t = setInterval(()=>{
+                                timer--
+                                var dis = 'disabled'
+                                var msg = timer + '秒后重试'
+                                if (timer <= 0) {
+                                    timer = 60
+                                    msg = '获取验证码'
+                                    dis = ''
+                                    clearInterval(t)
+                                }
+                                _this.setState({
+                                    VerifyCodeMsg: msg,
+                                    disabled: dis
+                                })
+                            },1000)
+                        }
                     }
-                    _this.setState({
-                        VerifyCodeMsg: msg,
-                        disabled: dis
-                    })
-                },1000);
-            }
-        })
+                })
+            break
+        }
+
     }
     phoneNumberChange = (e) => {
         this.setState({
@@ -94,15 +106,41 @@ export default class register extends React.Component {
         })
     }
     nextEvent = (e) => {
-        var phoneNumber,verifyCode;
+        var _this = this
+        var phoneNumber,verifyCode
         if (this.state.phoneNumber.length === 11 && this.state.VerifyCode.length > 0) {
             phoneNumber = this.state.phoneNumber,verifyCode = this.state.VerifyCode
-            window.location.href=`/#/resetpwd?p=${phoneNumber}&c=${verifyCode}&t=${this.state.type}`
+            $.ajax({
+                type: "POST",
+                url: "/api/checkverify",
+                data: JSON.stringify({
+                    m: phoneNumber,
+                    c: verifyCode,
+                    t: this.state.type
+                }) ,
+                dataType: "json",
+                success: function(data){
+                    if(data.code === 200) {
+                        return window.location.href=`/#/resetpwd?p=${phoneNumber}&c=${verifyCode}&t=${_this.state.type}`
+                    }
+                    notification['error']({
+                        message: '错误提示',
+                        description: data.message,
+                    })
+                },
+                error: function() {
+                    notification['error']({
+                        message: '错误提示',
+                        description: '网络异常!',
+                    })
+                }
+            })
+
         } else {
             notification['error']({
                 message: '错误提示',
                 description: '请输入完整的手机号和短信验证码!',
-            });
+            })
         }
     }
     render() {

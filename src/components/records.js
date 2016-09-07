@@ -85,7 +85,7 @@ export default class records extends React.Component {
             filterStyle: {
                 transform: !this.state.showFilter ? 'scale(1)' : 'scale(0)'
             }
-        });
+        })
     }
     loadMore = () => {
         // ajax获取更多数据
@@ -100,7 +100,7 @@ export default class records extends React.Component {
                         <div className="pkl-records-headimg">
                             <img src={this.state.headImg}/>
                             <span className="username">{this.state.userName}</span>
-                            <div className="platform">{this.state.platform}</div>
+                            <Link to="/club"><div className="platform">{this.state.platform}</div></Link>
                         </div>
                         <div className="pkl-records-statistics">
                             <li>
@@ -122,7 +122,7 @@ export default class records extends React.Component {
                                 </div>
                             </li>
                         </div>
-                        <Link to="/club"><span className="pkl-records-godetail">查看详情 ></span></Link>
+                        <Link to="/userinfo"><span className="pkl-records-godetail">查看详情 ></span></Link>
                     </div>
                     <div className="pkl-records-history">
                         <div className="circle">每日top牌谱</div>

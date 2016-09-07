@@ -22,7 +22,7 @@ import 'echarts/lib/component/title'
 
 import '../styles/club.scss'
 
-export default class today extends React.Component {
+export default class club extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -46,10 +46,10 @@ export default class today extends React.Component {
     componentDidMount() {
         PubSub.publish('updateMenu','back')
         PubSub.publish('updateTitle','俱乐部档案')
-        var _this = this;
+        var _this = this
         setTimeout(function(){
-            _this.rendderCharts();
-        },100);
+            _this.rendderCharts()
+        },100)
     }
     tabClick = (e) => {
         if(e.target.innerHTML === '战绩') {
@@ -124,9 +124,9 @@ export default class today extends React.Component {
                     },
                 }
             ]
-        };
-        incomeChart.setOption(option);
-        timeChart.setOption(option);
+        }
+        incomeChart.setOption(option)
+        timeChart.setOption(option)
     }
     render() {
         return (

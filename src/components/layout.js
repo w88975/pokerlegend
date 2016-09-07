@@ -24,13 +24,8 @@ export default class myLayout extends React.Component {
         PubSub.subscribe('updateMenu', this.updateMenu) // 注册更新title
         this.state = {
             title: '德扑神器',
-            leftStyle: { // 个人中心的隐藏或者显示样式
-                left: '-100%'
-            },
+            showMenu: false,// 个人中心的隐藏或者显示样式
             type: 'back' // back(只有回退按钮) back-filter(回退加筛选) profile(个人中心) profile-platform(个人中心加平台筛选)
-        }
-        this.profileStyle = {
-            left: '-18rem'
         }
     }
     componentDidMount() {
@@ -56,22 +51,20 @@ export default class myLayout extends React.Component {
             window.history.back(-1)
         } else {
             this.setState({
-                leftStyle: {
-                    left: '0rem'
-                }
+                showMenu: true
             })
         }
     }
 
     rightMenu = () => {
-        //
+        if (this.state.type === 'back-filter') {
+            PubSub.publish('emitFileter') // filter
+        }
     }
 
     profileClick = () => {
         this.setState({
-            leftStyle: {
-                left: '-100%'
-            }
+            showMenu: false
         })
     }
 
@@ -95,14 +88,22 @@ export default class myLayout extends React.Component {
                 <div className="my_content">
                     { this.props.children }
                 </div>
-                <div className="pkl-profile-panel" style={this.state.leftStyle} onClick={this.profileClick}>
+                <div className="pkl-profile-panel" style={this.state.showMenu ? {left: '0rem'} : {left: '-100%'}} onClick={this.profileClick}>
                     <div className="menu-bar" onClick={this.menuBarClick}>
-                        <Link to="/records"><Icon type="cloud-download-o" /> 同步数据</Link><br/>
-                        <Link to="/resetpwd"><Icon type="line-chart" /> 盈亏统计</Link><br/>
-                        <Link to="/"><Icon type="star" /> 收藏牌局</Link><br/>
-                        <Link to="/verifyCode"><Icon type="user" /> 账号管理</Link><br/>
-                        <Link to="/records"><Icon type="setting" /> 设置</Link><br/>
-                        <Link to="/login"><Icon type="cross-circle-o" /> 退出登录</Link><br/>
+                          { this.state.showMenu ? [
+                            <QueueAnim className="demo-content"
+                              key="menu"
+                              type={['right', 'left']}
+                              delay={500}
+                              ease={['easeOutQuart', 'easeInOutQuart']}>
+                                <Link to="/records" key="a"><Icon type="cloud-download-o" /> 同步数据</Link><br/>
+                                <Link to="/resetpwd" key="b"><Icon type="line-chart" /> 盈亏统计</Link><br/>
+                                <Link to="/favorite" key="c"><Icon type="star" /> 收藏牌局</Link><br/>
+                                <Link to="/verifyCode" key="d"><Icon type="user" /> 账号管理</Link><br/>
+                                <Link to="/records" key="e"><Icon type="setting" /> 设置</Link><br/>
+                                <Link to="/login" key="f"><Icon type="cross-circle-o" /> 退出登录</Link><br/>
+                            </QueueAnim>
+                            ]: null}
                     </div>
                 </div>
             </div>

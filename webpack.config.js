@@ -8,7 +8,7 @@
 
 
 
-var webpack = require('webpack');
+var webpack = require('webpack')
 
 module.exports = {
     entry: {
@@ -60,22 +60,22 @@ module.exports = {
         })
         // new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js', Infinity) // 这是第三方库打包生成的文件
     ]
-};
-
-if (process.env.NODE_ENV !== 'production') {
-    module.exports.plugins = [
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify('production')
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
-        new webpack.optimize.OccurenceOrderPlugin()
-    ]
-} else {
-    module.exports.devtool = '#source-map'
 }
+// 
+// if (process.env.NODE_ENV !== 'production') {
+//     module.exports.plugins = [
+//         new webpack.DefinePlugin({
+//             'process.env': {
+//                 NODE_ENV: JSON.stringify('production')
+//             }
+//         }),
+//         new webpack.optimize.UglifyJsPlugin({
+//             compress: {
+//                 warnings: false
+//             }
+//         }),
+//         new webpack.optimize.OccurenceOrderPlugin()
+//     ]
+// } else {
+//     module.exports.devtool = '#source-map'
+// }
