@@ -101,7 +101,7 @@
     border-bottom: $borderStyle;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background: #fff;
     .circle {
         width: 5rem;
@@ -144,6 +144,17 @@
             border-top: 1px solid #444;
             border-bottom: 1px solid #444;
         }
+    }
+}
+
+.filter-menu {
+    font-size: 1.2rem;
+    border-bottom: 1px solid gray;
+    text-align: center;
+    padding-bottom: .5rem;
+    padding-top: .5rem;
+    a {
+        color: #000;
     }
 }
 

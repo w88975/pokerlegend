@@ -8,7 +8,7 @@
 
 
 import React from 'react'
-import {Icon} from 'antd'
+import {Icon, Popover} from 'antd'
 import {Link} from 'react-router'
 import QueueAnim from 'rc-queue-anim'
 import PubSub from 'pubsub-js/src/pubsub'
@@ -23,9 +23,6 @@ export default class records extends React.Component {
             userName: '',
             platform: '',
             showFilter: false,
-            filterStyle: {
-                transform: 'scale(0)'
-            },
             records: [
                 {
                     'name': 'KamiSama',
@@ -82,26 +79,42 @@ export default class records extends React.Component {
     filterClick = () => {
         this.setState({
             showFilter: !this.state.showFilter,
-            filterStyle: {
-                transform: !this.state.showFilter ? 'scale(1)' : 'scale(0)'
-            }
         })
     }
     loadMore = () => {
         // ajax获取更多数据
     }
+
+    handleFilterChange = () => {
+        this.setState({ showFilter });
+    }
     render() {
+        const popContent = (
+            <div>
+                <div className="filter-menu">
+                    <a>胜率</a>
+                </div>
+                <div className="filter-menu">
+                    <a>1v1胜率</a>
+                </div>
+                <div className="filter-menu">
+                    <a>盈利</a>
+                </div>
+            </div>
+        )
         return (
             <QueueAnim
             type={['bottom', 'top']}
             ease={['easeOutQuart', 'easeInOutQuart']}>
                 <div className="ani-box flex-col" key="a">
                     <div className="pkl-records-head">
-                        <div className="pkl-records-headimg">
-                            <img src={this.state.headImg}/>
-                            <span className="username">{this.state.userName}</span>
-                            <Link to="/club"><div className="platform">{this.state.platform}</div></Link>
-                        </div>
+                        <Link to="/club">
+                            <div className="pkl-records-headimg">
+                                <img src={this.state.headImg}/>
+                                <span className="username">{this.state.userName}</span>
+                                <div className="platform">{this.state.platform}</div>
+                            </div>
+                        </Link>
                         <div className="pkl-records-statistics">
                             <li>
                                 <div className="key">盈利</div>
@@ -131,12 +144,11 @@ export default class records extends React.Component {
                     </div>
                     <div className="pkl-records-line">
                         <div>对阵战绩</div>
-                        <div onClick={this.filterClick}>筛选 <Icon type="down" /></div>
-                        <div className="records-filter" style={this.state.filterStyle}>
-                            <span>胜率</span>
-                            <span>1V1胜率</span>
-                            <span>盈利</span>
-                        </div>
+                         <Popover content={popContent} placement="left" trigger="click"
+                            visible={this.state.showFilter} onVisibleChange={this.handleFilterChange}
+                         >
+                            <div onClick={this.filterClick}>筛选 <Icon type="down" /></div>
+                        </Popover>
                     </div>
                     <div className="pkl-records-table flex flex-1">
                         <table>

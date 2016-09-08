@@ -1,0 +1,55 @@
+@import "variables.scss";
+
+.pkl-accounts {
+    .pkl-accounts-box {
+        width: 100%;
+        height: 12rem;
+        border-top: $borderStyle;
+        border-bottom: $borderStyle;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .add {
+            width: 8rem;
+            color: #b13636;
+        }
+        .line {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: .5rem 2rem;
+            align-items: center;
+
+            .headimg {
+                width: 4rem;
+                height: 4rem;
+                border-radius: 50%;
+            }
+
+            .name {
+                font-size: 1.2rem;
+            }
+
+            span {
+                padding: .5rem 2rem;
+                border: 1px solid #424242;
+            }
+        }
+    }
+
+    .accounts-box-center {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nomargin {
+        margin: 0;
+    }
+
+    .ant-modal-body {
+        margin: 0;
+        padding: 0;
+    }
+}

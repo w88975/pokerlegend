@@ -57,11 +57,12 @@ module.exports = {
             $: "jquery",
             jQuery: "jquery",
             "window.jQuery": "jquery"
-        })
+        }),
+        // new webpack.HotModuleReplacementPlugin()
         // new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js', Infinity) // 这是第三方库打包生成的文件
     ]
 }
-// 
+//
 // if (process.env.NODE_ENV !== 'production') {
 //     module.exports.plugins = [
 //         new webpack.DefinePlugin({

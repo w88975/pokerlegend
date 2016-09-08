@@ -1,0 +1,41 @@
+.poker {
+    width: 4.2rem;
+    height: 5.2rem;
+    background: #fff;
+    border-radius: .2rem;
+    display: flex;
+    position: relative;
+    border: 1px solid #000;
+    .top {
+        position: absolute;
+        left: .3rem;
+        top: .1rem;
+    }
+
+    .top_icon {
+        position: absolute;
+        left: .35rem;
+        top: .8rem;
+    }
+
+    .center_icon {
+        position: absolute;
+        top: .2rem;
+        left: 1rem;
+        font-size: 3rem;
+    }
+
+    .bottom {
+        position: absolute;
+        right: .3rem;
+        bottom: .1rem;
+        transform: rotate(180deg);
+    }
+
+    .bottom_icon {
+        position: absolute;
+        right: .35rem;
+        bottom: .9rem;
+        transform: rotate(180deg);
+    }
+}

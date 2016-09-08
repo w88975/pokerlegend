@@ -26,6 +26,7 @@ import userinfo from './components/userinfo.js'
 import replay from './components/replay.js'
 import favorite from './components/favorite.js'
 import daytop from './components/daytop.js'
+import accounts from './components/accounts.js'
 import my_test from './components/my_test.js'
 
 
@@ -61,6 +62,7 @@ render((
             <Route path="/replay" component={replay} />
             <Route path="/favorite" component={favorite} />
             <Route path="/daytop" component={daytop} />
+            <Route path="/accounts" component={accounts} />
             <Route path="/userinfo" component={userinfo} />
         </Route>
     </Router>

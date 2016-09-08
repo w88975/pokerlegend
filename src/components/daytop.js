@@ -13,6 +13,7 @@ import {Link} from 'react-router'
 import QueueAnim from 'rc-queue-anim'
 import PubSub from 'pubsub-js/src/pubsub'
 import { Input, Icon, notification } from 'antd'
+var Poker = require('./poker.js')
 
 import '../styles/daytop.scss'
 
@@ -50,7 +51,10 @@ export default class daytop extends React.Component {
                             <div className={this.state.tabIndex === 0 ? 'tab-item' : 'tab-item active'} onClick={this.tabClick}>输的最多</div>
                         </div>
                         <div className={this.state.tabIndex === 0 ? 'tab-content' : 'tab-content hidden'}>
-                            1
+                            <Poker value="K" type="♦">1</Poker>
+                            <Poker value="Q" type="♠">1</Poker>
+                            <Poker value="J" type="♥">1</Poker>
+                            <Poker value="A" type="♣">1</Poker>
                         </div>
                         <div className={this.state.tabIndex === 0 ? 'tab-content hidden' : 'tab-content'}>
                             2

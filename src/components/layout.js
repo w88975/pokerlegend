@@ -73,6 +73,7 @@ export default class myLayout extends React.Component {
     }
 
     render() {
+        // <Link to="/resetpwd" key="b"><Icon type="line-chart" /> 盈亏统计</Link><br/>
         return (
             <div className="my_layout">
                 <div className="my_header" style={this.style}>
@@ -97,9 +98,8 @@ export default class myLayout extends React.Component {
                               delay={500}
                               ease={['easeOutQuart', 'easeInOutQuart']}>
                                 <Link to="/records" key="a"><Icon type="cloud-download-o" /> 同步数据</Link><br/>
-                                <Link to="/resetpwd" key="b"><Icon type="line-chart" /> 盈亏统计</Link><br/>
                                 <Link to="/favorite" key="c"><Icon type="star" /> 收藏牌局</Link><br/>
-                                <Link to="/verifyCode" key="d"><Icon type="user" /> 账号管理</Link><br/>
+                                <Link to="/accounts" key="d"><Icon type="user" /> 账号管理</Link><br/>
                                 <Link to="/records" key="e"><Icon type="setting" /> 设置</Link><br/>
                                 <Link to="/login" key="f"><Icon type="cross-circle-o" /> 退出登录</Link><br/>
                             </QueueAnim>
