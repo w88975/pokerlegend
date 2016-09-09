@@ -13,8 +13,7 @@ import {Link} from 'react-router'
 import QueueAnim from 'rc-queue-anim'
 import PubSub from 'pubsub-js/src/pubsub'
 import { Input, Icon, notification } from 'antd'
-var Poker = require('./poker.js')
-
+import Poker from './poker.js'
 import '../styles/daytop.scss'
 
 export default class daytop extends React.Component {

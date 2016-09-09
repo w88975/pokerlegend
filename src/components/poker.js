@@ -16,7 +16,7 @@ import { Input, Icon, notification } from 'antd'
 
 import '../styles/poker.scss'
 
-export default class poker extends React.Component {
+export default class Poker extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -39,4 +39,4 @@ export default class poker extends React.Component {
     }
 }
 
-module.exports = poker
+export {Poker}

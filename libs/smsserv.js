@@ -6,12 +6,12 @@ var apikey = require('../config.json').smsApiKey
 var tpl_id = 1526792
 var send_tpl_sms_uri = '/v2/sms/tpl_single_send.json'
 
-var range=function(start,end) {
+var range = function(start,end) {
         var array=[]
         for(var i = start; i < end; ++i) array.push(i)
         return array
 }
-var getNumber =function(){
+var getNumber = function(){
     return range(0,5).map(function(x){
         return Math.floor(Math.random()*10)
     }).join('')

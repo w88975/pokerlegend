@@ -8,15 +8,15 @@
 var restify = require('restify')
 var server = restify.createServer()
 var ecstatic = require('ecstatic')
-var session = require('restify-session')({
-    debug : true,
-    ttl   : 2
-})
+// var session = require('restify-session')({
+//     debug : true,
+//     ttl   : 2
+// })
 var path = require('path')
 server.use(restify.acceptParser(server.acceptable))
 server.use(restify.queryParser())
 server.use(restify.jsonp())
-server.use(session.sessionManager)
+// server.use(session.sessionManager)
 server.get(/\/?.*/, restify.serveStatic({
     directory: process.cwd(),
     default: 'index.html',

@@ -78710,6 +78710,10 @@
 
 	var _pubsub2 = _interopRequireDefault(_pubsub);
 
+	var _poker = __webpack_require__(558);
+
+	var _poker2 = _interopRequireDefault(_poker);
+
 	__webpack_require__(548);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -78721,8 +78725,6 @@
 	* @Last modified by:   kamisama
 	* @Last modified time: 2016-08-31T18:16:29+08:00
 	*/
-
-	var Poker = __webpack_require__(558);
 
 	var daytop = function (_React$Component) {
 	    (0, _inherits3.default)(daytop, _React$Component);
@@ -78788,22 +78790,22 @@
 	                            'div',
 	                            { className: this.state.tabIndex === 0 ? 'tab-content' : 'tab-content hidden' },
 	                            _react2.default.createElement(
-	                                Poker,
+	                                _poker2.default,
 	                                { value: 'K', type: '♦' },
 	                                '1'
 	                            ),
 	                            _react2.default.createElement(
-	                                Poker,
+	                                _poker2.default,
 	                                { value: 'Q', type: '♠' },
 	                                '1'
 	                            ),
 	                            _react2.default.createElement(
-	                                Poker,
+	                                _poker2.default,
 	                                { value: 'J', type: '♥' },
 	                                '1'
 	                            ),
 	                            _react2.default.createElement(
-	                                Poker,
+	                                _poker2.default,
 	                                { value: 'A', type: '♣' },
 	                                '1'
 	                            )
@@ -79348,6 +79350,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.Poker = undefined;
 
 	var _getPrototypeOf = __webpack_require__(1);
 
@@ -79387,13 +79390,13 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var poker = function (_React$Component) {
-	    (0, _inherits3.default)(poker, _React$Component);
+	var Poker = function (_React$Component) {
+	    (0, _inherits3.default)(Poker, _React$Component);
 
-	    function poker(props) {
-	        (0, _classCallCheck3.default)(this, poker);
+	    function Poker(props) {
+	        (0, _classCallCheck3.default)(this, Poker);
 
-	        var _this = (0, _possibleConstructorReturn3.default)(this, (poker.__proto__ || (0, _getPrototypeOf2.default)(poker)).call(this, props));
+	        var _this = (0, _possibleConstructorReturn3.default)(this, (Poker.__proto__ || (0, _getPrototypeOf2.default)(Poker)).call(this, props));
 
 	        _this.state = {
 	            value: 'A',
@@ -79401,7 +79404,7 @@
 	        return _this;
 	    }
 
-	    (0, _createClass3.default)(poker, [{
+	    (0, _createClass3.default)(Poker, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {}
 	    }, {
@@ -79438,7 +79441,7 @@
 	            );
 	        }
 	    }]);
-	    return poker;
+	    return Poker;
 	}(_react2.default.Component); /**
 	                              * @Author: kamisama
 	                              * @Date:   2016-08-31T16:41:57+08:00
@@ -79447,10 +79450,8 @@
 	                              * @Last modified time: 2016-08-31T18:16:29+08:00
 	                              */
 
-	exports.default = poker;
-
-
-	module.exports = poker;
+	exports.default = Poker;
+	exports.Poker = Poker;
 
 /***/ }
 /******/ ]);
